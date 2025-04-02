@@ -1,0 +1,24 @@
+.header-title {
+  padding-inline: 1rem;
+  font-size: 2.5rem;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  color: var(--primary-color);
+
+  padding-inline: 1rem;
+  padding-block: 1rem;
+  background-color: var(--accent-color);
+  border: 0.2rem solid var(--text-color);
+  box-shadow: 1rem 1rem 0px var(--text-color);
+}
+
+.container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding-block: 1rem;
+  padding-inline: 1rem;
+  margin-bottom: 2rem;
+}
