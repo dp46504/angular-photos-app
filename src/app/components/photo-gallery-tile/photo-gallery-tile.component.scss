@@ -3,9 +3,37 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .photo {
   width: 15rem;
   height: 15rem;
+  object-fit: fill;
+  object-position: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.menu {
+  z-index: 200;
+  width: 100%;
+  height: 4rem;
+  background-color: rgba(0, 0, 0, 0.788);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.show-photo-button,
+.like-photo-button,
+.info-photo-button {
+  display: grid;
+  place-items: center;
+  color: var(--accent-color);
+  width: 2rem;
+  aspect-ratio: 1;
+  cursor: pointer;
 }

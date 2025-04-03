@@ -1,4 +1,4 @@
-import { Component, Input, input } from '@angular/core';
+import { Component, Input, signal } from '@angular/core';
 import { Photo } from '../../types/photos';
 
 @Component({
@@ -9,4 +9,17 @@ import { Photo } from '../../types/photos';
 })
 export class PhotoGalleryTileComponent {
   @Input() photo!: Photo;
+
+  showMenu = signal(false);
+
+  onMouseLeave(ev: MouseEvent) {
+    this.showMenu.set(false);
+  }
+  onMouseEnter(ev: MouseEvent) {
+    this.showMenu.set(true);
+
+    let t = ev.target as HTMLElement;
+  }
+
+  onMouseMove(ev: MouseEvent) {}
 }

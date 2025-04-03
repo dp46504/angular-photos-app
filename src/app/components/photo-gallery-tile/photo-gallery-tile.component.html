@@ -1,3 +1,15 @@
-<div class="container">
+<div
+  class="container"
+  (mouseenter)="onMouseEnter($event)"
+  (mouseleave)="onMouseLeave($event)"
+  (mousemove)="onMouseMove($event)"
+>
   <img [src]="photo.url" alt="Photo" class="photo" />
+
+  <!-- todo add photo menu -->
+  <div class="menu" *ngIf="showMenu()">
+    <span class="material-icons show-photo-button">crop_free</span>
+    <span class="material-icons like-photo-button">favorite</span>
+    <span class="material-icons info-photo-button">info</span>
+  </div>
 </div>

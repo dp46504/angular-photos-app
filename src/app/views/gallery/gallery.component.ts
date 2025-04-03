@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, signal } from '@angular/core';
 import { Photo } from '../../types/photos';
 import { delay, finalize, map, Observable } from 'rxjs';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-gallery',
@@ -13,26 +14,20 @@ export class GalleryComponent {
   constructor(private http: HttpClient) {}
   photos: Photo[] = [];
   pageIndex = signal(1);
-  photosPerPage = 9;
+  photosPerPage = signal(9);
   loading = signal(true);
+  totalQuantityOfPhotos = 100;
 
-  plusPage() {
-    this.pageIndex.update((prev) => {
-      return prev + 1;
-    });
+  changedPage(event: PageEvent) {
+    let length,
+      pageIndex,
+      pageSize,
+      previousPageIndex = event;
+    console.log(event.pageIndex);
+    this.pageIndex.update(() => event.pageIndex);
+    if (event.pageSize !== this.photosPerPage())
+      this.photosPerPage.update(() => event.pageSize);
     this.fetchPhotos();
-  }
-
-  minusPage() {
-    let flag = false;
-    this.pageIndex.update((prev) => {
-      if (prev > 1) {
-        flag = true;
-        return prev - 1;
-      }
-      return prev;
-    });
-    if (flag) this.fetchPhotos();
   }
 
   downloadPhotos(): Observable<Photo[]> {
@@ -41,11 +36,10 @@ export class GalleryComponent {
     return this.http
       .get<any>(
         `https://api.slingacademy.com/v1/sample-data/photos?offset=${
-          (this.pageIndex() - 1) * this.photosPerPage
-        }&limit=${this.photosPerPage}`
+          (this.pageIndex() - 1) * this.photosPerPage()
+        }&limit=${this.photosPerPage()}`
       )
       .pipe(
-        delay(1000),
         map((response) => response.photos as Photo[]),
         finalize(() => this.loading.set(false))
       );
