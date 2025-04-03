@@ -19,12 +19,7 @@ export class GalleryComponent {
   totalQuantityOfPhotos = 100;
 
   changedPage(event: PageEvent) {
-    let length,
-      pageIndex,
-      pageSize,
-      previousPageIndex = event;
-    console.log(event.pageIndex);
-    this.pageIndex.update(() => event.pageIndex);
+    this.pageIndex.update(() => event.pageIndex + 1);
     if (event.pageSize !== this.photosPerPage())
       this.photosPerPage.update(() => event.pageSize);
     this.fetchPhotos();

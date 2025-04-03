@@ -1,3 +1,20 @@
+@use "@angular/material" as mat;
+
+$primary-palette: mat.define-palette(mat.$indigo-palette);
+$accent-palette: mat.define-palette(mat.$pink-palette);
+$warn-palette: mat.define-palette(mat.$red-palette);
+
+// Definicja motywu
+$theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $primary-palette,
+      accent: $accent-palette,
+      warn: $warn-palette,
+    ),
+  )
+);
+
 :root {
   --primary-color: #2a182e;
   --accent-color: #f2bf27;
@@ -15,7 +32,8 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--background-color);
+  background: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
 }
 
 * {
@@ -23,5 +41,13 @@ body {
   outline: none;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@include mat.all-component-themes($theme);

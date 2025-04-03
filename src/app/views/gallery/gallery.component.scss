@@ -1,50 +1,16 @@
 .container,
 .skeleton {
-  margin: 0;
-  padding-inline: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  width: 100%;
-  height: 100%;
-  flex-wrap: wrap;
+  width: 40rem;
+  max-width: 50rem;
+  min-width: 20rem;
 }
 
 .paginator {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1rem;
   width: 100%;
-}
-
-button {
-  width: 3rem;
-  height: 2.5rem;
-  background: var(--accent-color);
-  border: none;
-  transition: box-shadow 0.1s ease;
-  border: 0.2rem solid var(--primary-color);
-  font-size: large;
-  font-family: Rubik, sans-serif;
-  font-weight: bold;
-  box-shadow: 0.2rem 0.2rem 0px var(--text-color);
-  &:active {
-    box-shadow: inset 0px 0px 0.6rem var(--accent-dark-color);
-    transform: translateY(0.05rem);
-  }
-}
-
-.pageIndex {
-  width: 3rem;
-  height: 2.5rem;
-  font-family: "Rubik", sans-serif;
-  font-weight: bold;
-  color: var(--text-color);
-  background: var(--accent-color);
-  box-shadow: 0.2rem 0.2rem 0px var(--text-color);
-  border-block: 0.2rem solid var(--primary-color);
-  display: grid;
-  place-items: center;
+  grid-column: 1/-1;
 }

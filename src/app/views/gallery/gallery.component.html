@@ -1,13 +1,13 @@
 <div class="container">
   <ng-container *ngIf="loading(); else photosTemplate">
     <ngx-skeleton-loader
-      [count]="photosPerPage"
+      [count]="photosPerPage()"
       animation="pulse"
       appearance="circle"
       class="skeleton"
       [theme]="{
-        width: '15rem',
-        height: '15rem',
+        width: '100%',
+        aspectRatio: '1',
         borderRadius: '0px',
         margin: '0px',
         backgroundColor: 'var(--shadow-light-color)',
@@ -16,11 +16,7 @@
   </ng-container>
 
   <ng-template #photosTemplate>
-    <mat-grid-list cols="3" rowHeight="2:1">
-      <mat-grid-tile *ngFor="let photo of photos">
-        <app-photo-gallery-tile [photo]="photo" />
-      </mat-grid-tile>
-    </mat-grid-list>
+    <app-photo-gallery-tile *ngFor="let photo of photos" [photo]="photo" />
   </ng-template>
 
   <mat-paginator
@@ -29,6 +25,7 @@
     [pageSize]="photosPerPage()"
     [pageSizeOptions]="[3, 6, 9, 12]"
     aria-label="Select page"
+    class="paginator"
   >
   </mat-paginator>
 </div>
