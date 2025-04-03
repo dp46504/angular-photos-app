@@ -17,6 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { themeReducer } from './store/reducers/theme.reducer';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { themeReducer } from './store/reducers/theme.reducer';
     MatIconModule,
     StoreModule.forRoot({ theme: themeReducer }, {}),
     EffectsModule.forRoot([]),
+    MatChipsModule,
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent],

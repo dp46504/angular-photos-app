@@ -18,6 +18,13 @@ export class GalleryComponent {
   loading = signal(true);
   totalQuantityOfPhotos = 100;
 
+  readonly bestBoys: string[] = [
+    'Samoyed',
+    'Akita Inu',
+    'Alaskan Malamute',
+    'Siberian Husky',
+  ];
+
   changedPage(event: PageEvent) {
     this.pageIndex.update(() => event.pageIndex + 1);
     if (event.pageSize !== this.photosPerPage())

@@ -3,9 +3,13 @@
     {{ headerText() }}
   </p>
   <button mat-icon-button class="darkModeSwitchIcon" (click)="switchTheme()">
-    <mat-icon *ngIf="checked(); else lightmode" fontIcon="dark_mode"></mat-icon>
+    <mat-icon
+      *ngIf="checked(); else lightmode"
+      fontIcon="dark_mode"
+      color="primary"
+    ></mat-icon>
     <ng-template #lightmode>
-      <mat-icon fontIcon="light_mode"></mat-icon>
+      <mat-icon fontIcon="light_mode" color="primary"></mat-icon>
     </ng-template>
   </button>
 </div>
