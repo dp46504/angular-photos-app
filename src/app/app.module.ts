@@ -13,6 +13,10 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { themeReducer } from './store/reducers/theme.reducer';
 
 @NgModule({
   declarations: [
@@ -30,6 +34,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatSlideToggleModule,
     MatPaginatorModule,
     MatGridListModule,
+    MatIconModule,
+    StoreModule.forRoot({ theme: themeReducer }, {}),
+    EffectsModule.forRoot([]),
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent],
