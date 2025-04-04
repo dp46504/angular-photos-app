@@ -60,8 +60,6 @@ export class PhotoGalleryTileComponent {
   }
   onMouseEnter(ev: MouseEvent) {
     this.showMenu.set(true);
-
-    let t = ev.target as HTMLElement;
   }
 
   onMouseMove(ev: MouseEvent) {}
