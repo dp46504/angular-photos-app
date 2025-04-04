@@ -1,9 +1,8 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   position: relative;
+  max-width: 22rem;
+  min-width: 18rem;
+  aspect-ratio: 1;
 }
 
 .photo {
