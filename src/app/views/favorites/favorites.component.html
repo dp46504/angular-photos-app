@@ -1,22 +1,9 @@
-<div class="container">
-  <ng-container *ngIf="loading(); else photosTemplate">
-    <ngx-skeleton-loader
-      [count]="6"
-      animation="pulse"
-      appearance="circle"
-      class="skeleton"
-      [theme]="{
-          width: '100%',
-          paddingBottom:'100%',
-          aspectRatio:'1/1',
-          borderRadius: '0px',
-          margin: '0px',
-          backgroundColor: 'var(--mat-sys-secondary)',
-        }"
-    />
-  </ng-container>
+<ng-container *ngIf="loading(); else photosTemplate">
+  <!-- todo loading -->
+</ng-container>
 
-  <ng-template #photosTemplate>
+<ng-template #photosTemplate>
+  <div class="gallery-container">
     <app-photo-gallery-tile *ngFor="let photo of photos" [photo]="photo" />
-  </ng-template>
-</div>
+  </div>
+</ng-template>

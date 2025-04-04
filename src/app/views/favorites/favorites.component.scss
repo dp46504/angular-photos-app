@@ -1,14 +1,11 @@
-.container,
-.skeleton {
-  margin: 2rem auto 2rem;
-  display: grid;
-  place-items: center;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  width: 40rem;
-  max-width: 40rem;
-  min-width: 20rem;
-}
-.skeleton {
-  opacity: 50%;
+.gallery-container {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+  padding-block: 2rem;
 }
