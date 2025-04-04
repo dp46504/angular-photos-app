@@ -6,13 +6,13 @@
       appearance="circle"
       class="skeleton"
       [theme]="{
-        width: '100%',
-        paddingBottom:'100%',
-        aspectRatio:'1/1',
-        borderRadius: '0px',
-        margin: '0px',
-        backgroundColor: 'var(--mat-sys-secondary)',
-      }"
+          width: '100%',
+          paddingBottom:'100%',
+          aspectRatio:'1/1',
+          borderRadius: '0px',
+          margin: '0px',
+          backgroundColor: 'var(--mat-sys-secondary)',
+        }"
     />
   </ng-container>
 
@@ -22,7 +22,6 @@
 
   <mat-paginator
     (page)="changedPage($event)"
-    [length]="totalQuantityOfPhotos"
     [pageSize]="photosPerPage()"
     [pageSizeOptions]="[3, 6, 9, 12]"
     aria-label="Select page"

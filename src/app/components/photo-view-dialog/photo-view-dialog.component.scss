@@ -1,0 +1,37 @@
+@use "@angular/material" as mat;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem 0.5rem 1.5rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  max-width: 25rem;
+  text-align: start;
+}
+
+.header-icon {
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  align-items: start;
+  padding: 0 0 1.5rem 1.5rem;
+}
+
+.description {
+  max-width: 20rem;
+}
+
+.photo {
+  width: 30rem;
+  height: 30rem;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 1rem;
+}

@@ -6,10 +6,43 @@
 >
   <img [src]="photo.url" alt="Photo" class="photo" />
 
-  <!-- todo add photo menu -->
   <div class="menu" *ngIf="showMenu()">
-    <mat-icon class="show-photo-button" fontIcon="crop_free"></mat-icon>
-    <mat-icon class="like-photo-button" fontIcon="favorite"></mat-icon>
-    <mat-icon class="info-photo-button" fontIcon="info"></mat-icon>
+    <mat-icon
+      class="show-photo-button"
+      (click)="openDialog('100ms', '100ms')"
+      fontIcon="crop_free"
+      #tooltip="matTooltip"
+      matTooltip="Show details"
+      matTooltipPosition="above"
+    ></mat-icon>
+
+    <mat-icon
+      *ngIf="liked(); else notLiked"
+      class="like-photo-button"
+      (click)="likeOrDislikePhoto()"
+      fontIcon="bookmark_added"
+      #tooltip="matTooltip"
+      matTooltip="Remove from favorites"
+      matTooltipPosition="above"
+    ></mat-icon>
+
+    <ng-template #notLiked>
+      <mat-icon
+        class="like-photo-button"
+        (click)="likeOrDislikePhoto()"
+        fontIcon="bookmark_add"
+        #tooltip="matTooltip"
+        matTooltip="Add to favorites"
+        matTooltipPosition="above"
+      ></mat-icon>
+    </ng-template>
+
+    <mat-icon
+      class="info-photo-button"
+      fontIcon="info"
+      #tooltip="matTooltip"
+      [matTooltip]="photo.description"
+      matTooltipPosition="above"
+    ></mat-icon>
   </div>
 </div>

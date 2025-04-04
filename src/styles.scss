@@ -3,8 +3,19 @@
 @use "@angular/material" as mat;
 @use "../theme-colors" as my-theme;
 
+:root {
+  @include mat.dialog-overrides(
+    (
+      container-min-width: 30rem,
+      container-max-width: 33rem,
+      // content-padding: 0 0 1rem 1.5rem,
+      headline-padding: 1rem 0 0.5rem 2rem,
+    )
+  );
+}
+
 html {
-  color-scheme: light dark;
+  color-scheme: dark;
   font-family: Rubik;
   @include mat.theme(
     (

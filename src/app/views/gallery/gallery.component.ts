@@ -3,6 +3,7 @@ import { Component, signal } from '@angular/core';
 import { Photo } from '../../types/photos';
 import { delay, finalize, map, Observable } from 'rxjs';
 import { PageEvent } from '@angular/material/paginator';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-gallery',
@@ -11,19 +12,15 @@ import { PageEvent } from '@angular/material/paginator';
   styleUrl: './gallery.component.scss',
 })
 export class GalleryComponent {
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private favoritesStore: Store<{ favorites: { photoIds: number[] } }>
+  ) {}
   photos: Photo[] = [];
   pageIndex = signal(1);
   photosPerPage = signal(9);
   loading = signal(true);
   totalQuantityOfPhotos = 100;
-
-  readonly bestBoys: string[] = [
-    'Samoyed',
-    'Akita Inu',
-    'Alaskan Malamute',
-    'Siberian Husky',
-  ];
 
   changedPage(event: PageEvent) {
     this.pageIndex.update(() => event.pageIndex + 1);

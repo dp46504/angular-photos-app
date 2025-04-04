@@ -1,7 +1,9 @@
 <div class="container">
-  <p class="header-title mat-display-large">
-    {{ headerText() }}
-  </p>
+  <div class="header-with-menu">
+    <p class="header-title">
+      {{ headerText() }}
+    </p>
+  </div>
   <button mat-icon-button class="darkModeSwitchIcon" (click)="switchTheme()">
     <mat-icon
       *ngIf="checked(); else lightmode"

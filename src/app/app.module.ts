@@ -18,6 +18,12 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { themeReducer } from './store/reducers/theme.reducer';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatTabsModule } from '@angular/material/tabs';
+import { FavoritesComponent } from './views/favorites/favorites.component';
+import { favoritesReducer } from './store/reducers/favorites.reducer';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { PhotoViewDialogComponent } from './components/photo-view-dialog/photo-view-dialog.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +32,8 @@ import { MatChipsModule } from '@angular/material/chips';
     GalleryComponent,
     FooterComponent,
     PhotoGalleryTileComponent,
+    FavoritesComponent,
+    PhotoViewDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,9 +44,15 @@ import { MatChipsModule } from '@angular/material/chips';
     MatPaginatorModule,
     MatGridListModule,
     MatIconModule,
-    StoreModule.forRoot({ theme: themeReducer }, {}),
+    StoreModule.forRoot(
+      { theme: themeReducer, favorites: favoritesReducer },
+      {}
+    ),
     EffectsModule.forRoot([]),
     MatChipsModule,
+    MatTabsModule,
+    MatDialogModule,
+    MatTooltipModule,
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent],
