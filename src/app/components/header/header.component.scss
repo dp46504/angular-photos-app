@@ -22,15 +22,18 @@
   font-size: 2.5rem;
 }
 
-.darkModeSwitchIcon {
+.dark-mode-switch-icon {
   font-size: xx-large;
   width: 3rem;
   border-radius: 50%;
+  margin: 1.5rem 1.5rem 0 0;
   border: none;
   aspect-ratio: 1;
+  background: var(--mat-sys-on-surface);
+  color: var(--mat-sys-surface);
   transition: transform 0.1s ease-in-out;
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
     cursor: pointer;
   }
 }
