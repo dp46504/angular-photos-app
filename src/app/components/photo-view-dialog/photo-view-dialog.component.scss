@@ -8,11 +8,18 @@
 
 .title {
   font-size: 1.5rem;
-  max-width: 25rem;
+  width: 25rem;
+  min-width: 25rem;
   text-align: start;
 }
 
-.header-icon {
+.like-photo-button,
+.download-photo-button {
+  cursor: pointer;
+  transition: transform 0.15s ease-in-out;
+  &:hover {
+    transform: scale(1.2);
+  }
 }
 
 .content {

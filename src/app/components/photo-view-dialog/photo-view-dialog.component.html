@@ -2,6 +2,7 @@
   <div class="title">
     {{ photo()?.title }}
   </div>
+
   <mat-icon
     *ngIf="liked(); else notLiked"
     class="like-photo-button"
@@ -22,6 +23,15 @@
       matTooltipPosition="above"
     ></mat-icon>
   </ng-template>
+
+  <mat-icon
+    class="download-photo-button"
+    fontIcon="download"
+    #tooltip="matTooltip"
+    matTooltip="Download"
+    matTooltipPosition="above"
+    (click)="downloadPhoto()"
+  ></mat-icon>
 </div>
 
 <mat-dialog-content class="mat-typography content">
