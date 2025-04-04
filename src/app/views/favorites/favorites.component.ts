@@ -43,18 +43,9 @@ export class FavoritesComponent {
   photoIdsArray$: Observable<number[]>;
 
   photos: Photo[] = [];
-  pageIndex = signal(1);
-  photosPerPage = signal(9);
   loading = signal(true);
 
   ngOnInit() {
-    this.fetchPhotos();
-  }
-
-  changedPage(event: PageEvent) {
-    this.pageIndex.update(() => event.pageIndex + 1);
-    if (event.pageSize !== this.photosPerPage())
-      this.photosPerPage.update(() => event.pageSize);
     this.fetchPhotos();
   }
 
@@ -69,8 +60,7 @@ export class FavoritesComponent {
         )
       ),
       map((res) => res.photo),
-      toArray(),
-      tap((d) => console.log(d))
+      toArray()
     );
   }
 
