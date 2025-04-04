@@ -1,7 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, signal } from '@angular/core';
 import { Photo } from '../../types/photos';
-import { delay, finalize, map, Observable } from 'rxjs';
+import {
+  debounce,
+  debounceTime,
+  delay,
+  finalize,
+  map,
+  Observable,
+  Subject,
+} from 'rxjs';
 import { PageEvent } from '@angular/material/paginator';
 import { Store } from '@ngrx/store';
 
@@ -22,11 +30,22 @@ export class GalleryComponent {
   loading = signal(true);
   totalQuantityOfPhotos = 100;
 
+  private pageChangeSubject = new Subject<void>();
+
+  ngOnInit() {
+    this.pageChangeSubject.pipe(debounceTime(200)).subscribe(() => {
+      this.fetchPhotos();
+    });
+    this.fetchPhotos();
+  }
+
   changedPage(event: PageEvent) {
     this.pageIndex.update(() => event.pageIndex + 1);
-    if (event.pageSize !== this.photosPerPage())
+    if (event.pageSize !== this.photosPerPage()) {
       this.photosPerPage.update(() => event.pageSize);
-    this.fetchPhotos();
+    }
+
+    this.pageChangeSubject.next();
   }
 
   downloadPhotos(): Observable<Photo[]> {
@@ -48,9 +67,5 @@ export class GalleryComponent {
     this.downloadPhotos().subscribe((photos) => {
       this.photos = photos;
     });
-  }
-
-  ngOnInit() {
-    this.fetchPhotos();
   }
 }
