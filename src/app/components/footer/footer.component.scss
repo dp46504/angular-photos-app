@@ -1,0 +1,18 @@
+.container {
+  width: 100%;
+  height: auto;
+  background: var(--mat-sys-on-surface);
+  color: var(--mat-sys-surface);
+  padding-block: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
