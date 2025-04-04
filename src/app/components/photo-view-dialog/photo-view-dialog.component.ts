@@ -46,8 +46,6 @@ export class PhotoViewDialogComponent {
   openSnackBar(message: string) {
     this._snackBar.openFromComponent(FavoritesSnackBarComponent, {
       duration: this.durationInSeconds * 1000,
-      horizontalPosition: 'center',
-      verticalPosition: 'top',
       data: { message },
     });
   }

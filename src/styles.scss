@@ -6,10 +6,8 @@
 :root {
   @include mat.dialog-overrides(
     (
-      container-min-width: 30rem,
-      container-max-width: 33rem,
-      // content-padding: 0 0 1rem 1.5rem,
-      headline-padding: 1rem 0 0.5rem 2rem,
+      container-min-width: 22rem,
+      container-max-width: 40rem,
     )
   );
 }

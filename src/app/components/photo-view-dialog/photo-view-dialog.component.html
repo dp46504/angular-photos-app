@@ -1,41 +1,42 @@
-<div class="header">
-  <div class="title">
-    {{ photo()?.title }}
+<div class="container">
+  <div class="header">
+    <span class="title">{{ photo()?.title }}</span>
+    <span class="description">{{ photo()?.description }}</span>
   </div>
 
-  <mat-icon
-    *ngIf="liked(); else notLiked"
-    class="like-photo-button"
-    (click)="likeOrDislikePhoto()"
-    fontIcon="bookmark_added"
-    #tooltip="matTooltip"
-    matTooltip="Remove from favorites"
-    matTooltipPosition="above"
-  ></mat-icon>
+  <div class="photo-container">
+    <img [src]="photo()?.url" alt="Photo" class="photo" />
+  </div>
 
-  <ng-template #notLiked>
+  <div class="buttons-container">
     <mat-icon
-      class="like-photo-button"
+      *ngIf="liked(); else notLiked"
+      class="photo-button"
       (click)="likeOrDislikePhoto()"
-      fontIcon="bookmark_add"
+      fontIcon="bookmark_added"
       #tooltip="matTooltip"
-      matTooltip="Add to favorites"
+      matTooltip="Remove from favorites"
       matTooltipPosition="above"
     ></mat-icon>
-  </ng-template>
 
-  <mat-icon
-    class="download-photo-button"
-    fontIcon="download"
-    #tooltip="matTooltip"
-    matTooltip="Download"
-    matTooltipPosition="above"
-    (click)="downloadPhoto()"
-  ></mat-icon>
+    <ng-template #notLiked>
+      <mat-icon
+        class="photo-button"
+        (click)="likeOrDislikePhoto()"
+        fontIcon="bookmark_add"
+        #tooltip="matTooltip"
+        matTooltip="Add to favorites"
+        matTooltipPosition="above"
+      ></mat-icon>
+    </ng-template>
+
+    <mat-icon
+      class="photo-button"
+      fontIcon="download"
+      #tooltip="matTooltip"
+      matTooltip="Download"
+      matTooltipPosition="above"
+      (click)="downloadPhoto()"
+    ></mat-icon>
+  </div>
 </div>
-
-<mat-dialog-content class="mat-typography content">
-  <p class="description">{{ photo()?.description }}</p>
-
-  <img [src]="photo()?.url" alt="Photo" class="photo" />
-</mat-dialog-content>

@@ -31,7 +31,6 @@ export class PhotoGalleryTileComponent {
     exitAnimationDuration: string
   ): void {
     this.dialog.open(PhotoViewDialogComponent, {
-      width: '70rem',
       enterAnimationDuration,
       exitAnimationDuration,
       data: { photo: this.photo },
