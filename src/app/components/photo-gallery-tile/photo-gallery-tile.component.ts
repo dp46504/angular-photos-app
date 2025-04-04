@@ -9,6 +9,8 @@ import { take } from 'rxjs';
 import { FavoritesState } from '../../store/reducers/favorites.reducer';
 import { MatDialog } from '@angular/material/dialog';
 import { PhotoViewDialogComponent } from '../photo-view-dialog/photo-view-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { FavoritesSnackBarComponent } from '../favorites-snack-bar/favorites-snack-bar.component';
 
 @Component({
   selector: 'app-photo-gallery-tile',
@@ -21,6 +23,8 @@ export class PhotoGalleryTileComponent {
   liked = signal(false);
   showMenu = signal(false);
   readonly dialog = inject(MatDialog);
+  private _snackBar = inject(MatSnackBar);
+  durationInSeconds = 3;
 
   openDialog(
     enterAnimationDuration: string,
@@ -31,6 +35,13 @@ export class PhotoGalleryTileComponent {
       enterAnimationDuration,
       exitAnimationDuration,
       data: { photo: this.photo },
+    });
+  }
+
+  openSnackBar(message: string) {
+    this._snackBar.openFromComponent(FavoritesSnackBarComponent, {
+      duration: this.durationInSeconds * 1000,
+      data: { message },
     });
   }
 
@@ -47,10 +58,12 @@ export class PhotoGalleryTileComponent {
           this.favoritesStore.dispatch(
             removeFromFavorites({ photoId: this.photo.id })
           );
+          this.openSnackBar('Removed from favorites');
         } else {
           this.favoritesStore.dispatch(
             addToFavorites({ photoId: this.photo.id })
           );
+          this.openSnackBar('Added to favorites');
         }
       });
   }

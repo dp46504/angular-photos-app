@@ -24,6 +24,8 @@ import { favoritesReducer } from './store/reducers/favorites.reducer';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { PhotoViewDialogComponent } from './components/photo-view-dialog/photo-view-dialog.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { FavoritesSnackBarComponent } from './components/favorites-snack-bar/favorites-snack-bar.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { PhotoViewDialogComponent } from './components/photo-view-dialog/photo-v
     PhotoGalleryTileComponent,
     FavoritesComponent,
     PhotoViewDialogComponent,
+    FavoritesSnackBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +56,7 @@ import { PhotoViewDialogComponent } from './components/photo-view-dialog/photo-v
     MatTabsModule,
     MatDialogModule,
     MatTooltipModule,
+    MatSnackBarModule,
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent],
