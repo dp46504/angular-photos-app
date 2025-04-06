@@ -1,6 +1,12 @@
 <div class="container">
   <div class="header">
-    <span class="title">{{ photo()?.title }}</span>
+    <span
+      class="title"
+      #tooltip="matTooltip"
+      [matTooltip]="photo()?.title"
+      matTooltipPosition="above"
+      >{{ photo()?.title | truncateTitle }}</span
+    >
     <span class="description">{{ photo()?.description }}</span>
   </div>
 

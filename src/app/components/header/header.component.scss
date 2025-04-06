@@ -14,12 +14,17 @@
   width: auto;
 }
 
+.highlight {
+  transform: translateY(-0.2rem) scale(1.05);
+}
+
 .header-title {
   padding-inline: 1rem;
   padding-block: 1rem;
   margin: 0;
   font-weight: bold;
   font-size: 2.5rem;
+  transition: all 0.1s ease-in-out;
 }
 
 .dark-mode-switch-icon {

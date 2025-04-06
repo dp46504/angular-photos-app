@@ -26,6 +26,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { PhotoViewDialogComponent } from './components/photo-view-dialog/photo-view-dialog.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FavoritesSnackBarComponent } from './components/favorites-snack-bar/favorites-snack-bar.component';
+import { HighlightOnHoverDirective } from './directives/highlight-on-hover.directive';
+import { TruncateTitlePipe } from './pipes/truncate-title.pipe';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { FavoritesSnackBarComponent } from './components/favorites-snack-bar/fav
     FavoritesComponent,
     PhotoViewDialogComponent,
     FavoritesSnackBarComponent,
+    HighlightOnHoverDirective,
+    TruncateTitlePipe,
   ],
   imports: [
     BrowserModule,
