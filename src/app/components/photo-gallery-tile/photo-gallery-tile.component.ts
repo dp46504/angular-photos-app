@@ -68,10 +68,14 @@ export class PhotoGalleryTileComponent {
   }
 
   onMouseLeave(ev: MouseEvent) {
-    this.showMenu.set(false);
+    (ev.target as HTMLElement)
+      .querySelector('.menu')
+      ?.classList.remove('show-menu');
   }
   onMouseEnter(ev: MouseEvent) {
-    this.showMenu.set(true);
+    (ev.target as HTMLElement)
+      .querySelector('.menu')
+      ?.classList.add('show-menu');
   }
 
   onMouseMove(ev: MouseEvent) {}

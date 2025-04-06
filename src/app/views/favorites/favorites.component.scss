@@ -5,7 +5,31 @@
   flex-wrap: wrap;
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
   gap: 2rem;
   padding-block: 2rem;
+  margin: 0 auto;
+}
+
+.no-photos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-block: 2rem;
+  padding-inline: 4rem;
+  line-height: 3.5rem;
+  letter-spacing: 0.05rem;
+  font-weight: 500;
+  font-size: 2rem;
+  text-align: center;
+  gap: 3.5rem;
+}
+
+.no-photos-icon {
+  transform: scale(2);
+  transition: all 250ms;
+  &:hover {
+    transform: scale(2.5);
+  }
 }

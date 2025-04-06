@@ -3,6 +3,7 @@
   max-width: 22rem;
   min-width: 18rem;
   aspect-ratio: 1;
+  overflow: hidden;
 }
 
 .photo {
@@ -22,12 +23,17 @@
   background-color: var(--mat-sys-on-surface);
   color: var(--mat-sys-surface);
   position: absolute;
-  bottom: 0;
+  bottom: -4rem;
   left: 0;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   border-radius: 0.5rem;
+  transition: all 100ms ease-in-out;
+}
+
+.show-menu {
+  bottom: 0;
 }
 
 .show-photo-button,

@@ -8,6 +8,14 @@
 
 <ng-template #photosTemplate>
   <div class="gallery-container">
+    <div *ngIf="photos.length === 0" class="no-photos">
+      <span>
+        You haven't liked any photos yet. Discover amazing images and show some
+        love by tapping the bookmark icon
+      </span>
+      <mat-icon fontIcon="bookmark_add" class="no-photos-icon"></mat-icon>
+    </div>
+
     <app-photo-gallery-tile *ngFor="let photo of photos" [photo]="photo" />
   </div>
 </ng-template>
