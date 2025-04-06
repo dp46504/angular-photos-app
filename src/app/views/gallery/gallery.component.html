@@ -1,5 +1,9 @@
 <ng-container *ngIf="loading(); else photosTemplate">
-  <!-- todo loading -->
+  <div class="gallery-container">
+    <app-photo-gallery-tile-skeleton
+      *appMultiply="photosPerPage()"
+    ></app-photo-gallery-tile-skeleton>
+  </div>
 </ng-container>
 
 <ng-template #photosTemplate>

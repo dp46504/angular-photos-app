@@ -12,7 +12,10 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  BrowserAnimationsModule,
+  provideAnimations,
+} from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -29,6 +32,9 @@ import { FavoritesSnackBarComponent } from './components/favorites-snack-bar/fav
 import { HighlightOnHoverDirective } from './directives/highlight-on-hover.directive';
 import { TruncateTitlePipe } from './pipes/truncate-title.pipe';
 import { MultiplyDirective } from './directives/multiply.directive';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { PhotoGalleryTileSkeletonComponent } from './components/skeletons/photo-gallery-tile-skeleton/photo-gallery-tile-skeleton.component';
+import { PulseComponent } from './animations/pulse/pulse.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +49,8 @@ import { MultiplyDirective } from './directives/multiply.directive';
     HighlightOnHoverDirective,
     TruncateTitlePipe,
     MultiplyDirective,
+    PhotoGalleryTileSkeletonComponent,
+    PulseComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,8 +71,9 @@ import { MultiplyDirective } from './directives/multiply.directive';
     MatDialogModule,
     MatTooltipModule,
     MatSnackBarModule,
+    MatProgressSpinnerModule,
   ],
-  providers: [provideHttpClient()],
+  providers: [provideHttpClient(), provideAnimations()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
