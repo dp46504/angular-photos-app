@@ -28,6 +28,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FavoritesSnackBarComponent } from './components/favorites-snack-bar/favorites-snack-bar.component';
 import { HighlightOnHoverDirective } from './directives/highlight-on-hover.directive';
 import { TruncateTitlePipe } from './pipes/truncate-title.pipe';
+import { MultiplyDirective } from './directives/multiply.directive';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { TruncateTitlePipe } from './pipes/truncate-title.pipe';
     FavoritesSnackBarComponent,
     HighlightOnHoverDirective,
     TruncateTitlePipe,
+    MultiplyDirective,
   ],
   imports: [
     BrowserModule,
